@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://192.168.0.21:8000/scoreboard -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ctf test</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="http://192.168.0.21:8000/themes/core/static/img/favicon.ico?d=e7358589" type="image/x-icon">
+	<link rel="stylesheet" href="./scoreboard_files/fonts.min.css">
+	<link rel="stylesheet" href="./scoreboard_files/main.min.css">
+	<link rel="stylesheet" href="./scoreboard_files/core.min.css">
+	<script  src="./scoreboard_files/jquery-3.4.1.min.js"></script>
+	
+	
+	<script type="text/javascript">
+		function appendTablebody(){
+			$.get("/display.php",function(data,status){
+    			$("#scoreboard-tablebody").empty();
+				$("#scoreboard-tablebody").append(data);
+  			});
+		}
+
+		function appendTime(){
+			$.get("/displaytime.php",function(data,status){
+    			$("#game_rounds").empty();
+				$("#game_rounds").append(data.game_rounds);
+				$("#remaining_time").empty();
+				$("#remaining_time").append(data.remaining_time);
+  			});
+		}
+
+	</script>
+	
+<style id="plotly.js-style-global"></style></head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<script type="text/javascript">appendTime();setInterval('appendTime()',1000);</script>
+		<div class="container">
+			<a href="" class="navbar-brand">
+				第
+			</a>
+			<a href="" class="navbar-brand" id="game_rounds">
+				0
+			</a>
+			<a href="" class="navbar-brand">
+				轮
+			</a>
+			<div class="collapse navbar-collapse" id="base-navbars">
+				<ul class="navbar-nav mr-auto">
+					
+
+					
+						<li class="nav-item">
+							<a class="nav-link" href="">本轮剩余时间</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="" id="remaining_time">0</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="">秒</a>
+						</li>
+
+				<hr class="d-sm-flex d-md-flex d-lg-none">
+
+			</div>
+		</div>
+	</nav>
+
+	<main role="main">
+		
+<div class="jumbotron">
+	<div class="container">
+		<h1>Scoreboard</h1>
+	</div>
+</div>
+<div class="container">
+	
+		
+
+		<div id="scoreboard" class="row">
+			<div class="col-md-12">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+						<td scope="col" width="10px"><b>Place</b></td>
+						<td scope="col"><b>Team</b></td>
+						<td scope="col"><b>Score</b></td>
+						</tr>
+					</thead>
+					<tbody id="scoreboard-tablebody">
+						<script type="text/javascript">appendTablebody();setInterval('appendTablebody()',2000);</script>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	
+</div>
+
+</main>
+
+	<footer class="footer">
+		<div class="container text-center">
+			<a href="https://ctfd.io/" class="text-secondary">
+				<small class="text-muted">Powered by CTFd</small>
+			</a>
+		</div>
+	</footer>
+
+	<script defer="" src="./scoreboard_files/vendor.bundle.min.js"></script>
+	<script defer="" src="./scoreboard_files/core.min.js"></script>
+	<script defer="" src="./scoreboard_files/helpers.min.js"></script>
+
+	
+	<script defer="" src="./scoreboard_files/scoreboard.min.js"></script>
+
+
+	
+	<script defer="" src="./scoreboard_files/plotly.bundle.min.js"></script>
+
+
+	
+
+	
+
+</body></html>
